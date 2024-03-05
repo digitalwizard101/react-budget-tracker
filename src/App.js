@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext, useEffect, useState } from "react";
+import "./App.css";
+import Budget from "./components/Budget";
+import Remaining from "./components/Remaining";
+import Spent from "./components/Spent";
+import ExpenseList from "./components/ExpenseList";
+import AddExpense from "./components/AddExpense";
+import { AppContext, AppProvider } from "./context/AppContext";
 
-function App() {
+const App = () => {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppProvider>
+      <div className="container">
+        <div className="container-fluid mt-4">
+          <div className="row">
+            <div className="col-md-12">
+              <h1>My Budget Planner</h1>
+            </div>
+          </div>
+        </div>
+
+        <div className="container-fluid mt-2">
+          <div className="row">
+            <div className="col-md-4">
+              <Budget />
+            </div>
+            <div className="col-md-4">
+              <Remaining />
+            </div>
+            <div className="col-md-4">
+              <Spent />
+            </div>
+          </div>
+        </div>
+
+        <div className="container-fluid mt-2">
+          <div className="row">
+            <div className="col-md-12">
+              <ExpenseList />
+            </div>
+          </div>
+        </div>
+        <div className="container-fluid mt-2">
+          <div className="row">
+            <div className="col-md-12">
+              <AddExpense />
+            </div>
+          </div>
+        </div>
+      </div>
+    </AppProvider>
   );
-}
+};
 
 export default App;
