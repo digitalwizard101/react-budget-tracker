@@ -33,16 +33,15 @@ const localResulted = JSON.parse(localStorage.getItem("budget-data"));
 
 const initialState = {
   budget: 40000,
-  expenses:
-    localResulted.length === 0
-      ? [
-          { id: uuidv4(), text: "Shopping", cost: 4500 },
-          { id: uuidv4(), text: "Makeup", cost: 2500 },
-          { id: uuidv4(), text: "groceries", cost: 8000 },
-          { id: uuidv4(), text: "newsPaper", cost: 500 },
-          { id: uuidv4(), text: "Milk", cost: 4500 },
-        ]
-      : localResulted,
+  expenses: !localResulted
+    ? [
+        { id: uuidv4(), text: "Shopping", cost: 4500 },
+        { id: uuidv4(), text: "Makeup", cost: 2500 },
+        { id: uuidv4(), text: "groceries", cost: 8000 },
+        { id: uuidv4(), text: "newsPaper", cost: 500 },
+        { id: uuidv4(), text: "Milk", cost: 4500 },
+      ]
+    : localResulted,
 };
 
 // 2. Creates the context this is the thing our components import and use to get the state
